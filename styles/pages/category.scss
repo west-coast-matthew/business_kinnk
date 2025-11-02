@@ -1,0 +1,143 @@
+@import '../variables.scss';
+
+.category-page {
+  width: 100%;
+
+  &.loading,
+  &.error {
+    padding: $spacing-2xl;
+    text-align: center;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      font-size: $font-size-2xl;
+    }
+  }
+}
+
+.category-header {
+  padding: $spacing-2xl $spacing-md;
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  border-bottom: 1px solid $border-color;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-md;
+
+    @include mobile-first {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin-bottom: $spacing-md;
+  }
+
+  .product-count {
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+}
+
+.subcategories-section {
+  padding: $spacing-2xl $spacing-md;
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+  border-bottom: 1px solid $border-color;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.subcategories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-lg;
+}
+
+.subcat-item {
+  display: flex;
+  justify-content: center;
+}
+
+.subcat-link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background-color: $background-alt;
+  border: 2px solid $border-color;
+  border-radius: $border-radius-lg;
+  color: $text-light;
+  cursor: pointer;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $primary;
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: transform $transition-fast;
+  }
+}
+
+.products-section {
+  padding: $spacing-2xl $spacing-md;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: $spacing-lg;
+
+  @include mobile-first {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: $spacing-2xl;
+  color: $text-secondary;
+}
