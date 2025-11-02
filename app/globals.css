@@ -1,26 +1,16 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+@import url('../styles/globals.scss');
+@import url('../styles/components.scss');
+@import url('../styles/components/header.scss');
+@import url('../styles/components/footer.scss');
+@import url('../styles/components/carousel.scss');
+@import url('../styles/components/product-card.scss');
+@import url('../styles/pages/home.scss');
+@import url('../styles/pages/collections.scss');
+@import url('../styles/pages/products.scss');
+@import url('../styles/pages/product-detail.scss');
+@import url('../styles/pages/category.scss');
+@import url('../styles/pages/cart.scss');
+@import url('../styles/pages/checkout.scss');
+@import url('../styles/pages/faq.scss');
+@import url('../styles/pages/articles.scss');
+@import url('../styles/pages/account.scss');
