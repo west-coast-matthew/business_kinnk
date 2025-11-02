@@ -61,9 +61,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
 
-  &::nth-letter(2) {
-    transform: scaleX(-1);
-  }
+  
 }
 
 .menu-toggle {
