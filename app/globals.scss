@@ -1,0 +1,17 @@
+@use '../styles/variables.scss' as *;
+@use '../styles/globals.scss';
+@use '../styles/components.scss';
+@use '../styles/components/header.scss';
+@use '../styles/components/footer.scss';
+@use '../styles/components/carousel.scss';
+@use '../styles/components/product-card.scss';
+@use '../styles/pages/home.scss';
+@use '../styles/pages/collections.scss';
+@use '../styles/pages/products.scss';
+@use '../styles/pages/product-detail.scss';
+@use '../styles/pages/category.scss';
+@use '../styles/pages/cart.scss';
+@use '../styles/pages/checkout.scss';
+@use '../styles/pages/faq.scss';
+@use '../styles/pages/articles.scss';
+@use '../styles/pages/account.scss';

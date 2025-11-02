@@ -1,0 +1,217 @@
+@use '../variables.scss' as *;
+
+.home-page {
+  width: 100%;
+}
+
+.featured-section {
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+  padding: $spacing-2xl $spacing-md;
+  border-bottom: 1px solid $border-color;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+}
+
+.featured-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-md;
+
+    @include mobile-first {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-lg;
+  }
+
+  .btn {
+    display: inline-block;
+  }
+}
+
+.products-section {
+  padding: $spacing-2xl $spacing-md;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+
+  @include desktop {
+    padding: $spacing-2xl $spacing-xl;
+  }
+}
+
+.section-title {
+  text-align: center;
+  font-size: $font-size-2xl;
+  margin-bottom: $spacing-2xl;
+  color: $text-light;
+
+  @include mobile-first {
+    font-size: 2.5rem;
+  }
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: $spacing-lg;
+
+  @include mobile-first {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.loading-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: $spacing-lg;
+
+  @include mobile-first {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .skeleton-card {
+    aspect-ratio: 1;
+    background: linear-gradient(90deg, $background-alt 25%, $border-color 50%, $background-alt 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: $border-radius-lg;
+  }
+}
+
+.content-section {
+  padding: $spacing-2xl $spacing-md;
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.03) 0%, rgba(0, 0, 0, 0) 100%);
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include mobile-first {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.content-card {
+  text-align: center;
+  padding: $spacing-lg;
+  border-radius: $border-radius-lg;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all $transition-base;
+
+  &:hover {
+    background-color: rgba(139, 21, 56, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+.content-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto $spacing-md;
+  background-color: rgba($primary, 0.2);
+  border-radius: $border-radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $primary;
+
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.content-card {
+  h3 {
+    font-size: $font-size-lg;
+    color: $text-light;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $text-secondary;
+    margin: 0;
+    line-height: $line-height-relaxed;
+  }
+}
+
+.cta-section {
+  padding: $spacing-2xl $spacing-md;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.1) 0%, rgba(139, 21, 56, 0.05) 100%);
+  padding: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  border: 1px solid rgba($primary, 0.2);
+
+  h2 {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-md;
+
+    @include mobile-first {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+  }
+
+  .btn {
+    display: inline-block;
+  }
+}
+
+.main-content {
+  min-height: 100vh;
+}

@@ -1,0 +1,213 @@
+@use '../variables.scss' as *;
+
+.faq-page {
+  width: 100%;
+}
+
+.page-header {
+  padding: $spacing-2xl $spacing-md;
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  border-bottom: 1px solid $border-color;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-md;
+
+    @include mobile-first {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+  }
+}
+
+.faq-section {
+  padding: $spacing-2xl $spacing-md;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+}
+
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $border-color;
+}
+
+.category-btn {
+  padding: $spacing-sm $spacing-lg;
+  border: 2px solid $border-color;
+  background-color: transparent;
+  color: $text-light;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: all $transition-fast;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+  }
+
+  &.active {
+    background-color: $primary;
+    border-color: $primary;
+    color: $text-light;
+  }
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.faq-item {
+  border: 1px solid $border-color;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $primary;
+    box-shadow: $shadow-md;
+  }
+}
+
+.faq-question {
+  width: 100%;
+  padding: $spacing-lg;
+  background-color: $background-alt;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-lg;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: rgba($primary, 0.05);
+  }
+
+  &[aria-expanded='true'] {
+    background-color: rgba($primary, 0.1);
+
+    .toggle-icon {
+      transform: rotate(180deg);
+      color: $primary;
+    }
+  }
+}
+
+.question-text {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $text-light;
+  text-align: left;
+  flex: 1;
+}
+
+.toggle-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-secondary;
+  flex-shrink: 0;
+  transition: all $transition-fast;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.faq-answer {
+  padding: $spacing-lg;
+  background-color: $background;
+  border-top: 1px solid $border-color;
+  animation: slideDown $transition-base ease-out;
+
+  p {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading,
+.no-results {
+  text-align: center;
+  padding: $spacing-2xl;
+  color: $text-secondary;
+}
+
+.contact-cta {
+  padding: $spacing-2xl $spacing-md;
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  border-top: 1px solid $border-color;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+}
+
+.cta-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-md;
+
+    @include mobile-first {
+      font-size: 2.25rem;
+    }
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+  }
+
+  .btn {
+    display: inline-block;
+  }
+}

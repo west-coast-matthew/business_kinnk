@@ -1,0 +1,194 @@
+@use '../variables.scss' as *;
+
+.collections-page {
+  width: 100%;
+}
+
+.page-header {
+  padding: $spacing-2xl $spacing-md;
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  border-bottom: 1px solid $border-color;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-md;
+
+    @include mobile-first {
+      font-size: 3.5rem;
+    }
+  }
+
+  p {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+  }
+}
+
+.collections-section {
+  padding: $spacing-2xl $spacing-md;
+
+  @include tablet {
+    padding: $spacing-2xl $spacing-lg;
+  }
+}
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include mobile-first {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.collection-card {
+  position: relative;
+  display: block;
+  height: 350px;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid $border-color;
+  transition: all $transition-base;
+
+  @include tablet {
+    height: 400px;
+  }
+
+  &:hover {
+    border-color: $primary;
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+
+    .collection-overlay {
+      opacity: 0.7;
+    }
+
+    .collection-image {
+      transform: scale(1.05);
+    }
+
+    .collection-link {
+      opacity: 1;
+      transform: translateX(8px);
+    }
+  }
+}
+
+.collection-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.collection-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $transition-slow;
+}
+
+.collection-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%);
+  transition: opacity $transition-base;
+  opacity: 0.5;
+}
+
+.collection-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: $spacing-lg;
+  z-index: 2;
+  color: $text-light;
+
+  h2 {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-sm;
+
+    @include mobile-first {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  p {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-md;
+    color: rgba(255, 255, 255, 0.9);
+
+    @include mobile-first {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+.collection-link {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  color: $primary;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-sm;
+  transition: all $transition-fast;
+  opacity: 0;
+
+  @include mobile-first {
+    font-size: $font-size-base;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.loading-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include mobile-first {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .skeleton-card {
+    height: 350px;
+    background: linear-gradient(90deg, $background-alt 25%, $border-color 50%, $background-alt 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: $border-radius-lg;
+
+    @include tablet {
+      height: 400px;
+    }
+  }
+}
