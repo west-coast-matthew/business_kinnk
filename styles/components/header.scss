@@ -1,0 +1,198 @@
+@import '../variables.scss';
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: $background;
+  border-bottom: 1px solid $border-color;
+}
+
+.header-top {
+  background-color: $background-alt;
+  padding: $spacing-sm 0;
+  text-align: center;
+  border-bottom: 1px solid $border-color;
+}
+
+.header-tagline {
+  font-size: $font-size-sm;
+  color: $primary;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 1px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.header-nav {
+  padding: $spacing-md 0;
+
+  .container {
+    padding: 0 $spacing-md;
+
+    @include tablet {
+      padding: 0 $spacing-lg;
+    }
+  }
+}
+
+.nav-content {
+  @include flex-between;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-decoration: none;
+
+  @include tablet {
+    position: relative;
+    transform: none;
+    margin-right: auto;
+  }
+}
+
+.logo-text {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $text-light;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  &::nth-letter(2) {
+    transform: scaleX(-1);
+  }
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-sm;
+  margin: -$spacing-sm 0 -$spacing-sm -$spacing-sm;
+
+  @include tablet {
+    display: none;
+  }
+
+  span {
+    width: 24px;
+    height: 2px;
+    background-color: $text-light;
+    transition: all $transition-base;
+  }
+
+  &.active {
+    span:nth-child(1) {
+      transform: rotate(45deg) translateY(12px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-12px);
+    }
+  }
+}
+
+.nav-menu {
+  display: none;
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: $background-alt;
+  border-bottom: 1px solid $border-color;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+
+  &.active {
+    display: flex;
+  }
+
+  @include tablet {
+    position: static;
+    display: flex;
+    background-color: transparent;
+    border: none;
+    flex-direction: row;
+    gap: $spacing-lg;
+    margin: 0 auto;
+  }
+
+  li {
+    border-bottom: 1px solid $border-color;
+
+    @include tablet {
+      border: none;
+    }
+  }
+
+  a {
+    display: block;
+    padding: $spacing-md;
+    color: $text-light;
+    transition: color $transition-fast;
+
+    @include tablet {
+      padding: 0;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.nav-actions {
+  display: flex;
+  gap: $spacing-lg;
+  align-items: center;
+}
+
+.nav-link {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: $border-radius-md;
+  color: $text-light;
+  transition: all $transition-fast;
+  position: relative;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &:hover {
+    color: $primary;
+    background-color: rgba($primary, 0.1);
+  }
+}
+
+.cart-link {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: $primary;
+  color: $text-light;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  @include flex-center;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+}
