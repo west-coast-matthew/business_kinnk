@@ -1,4 +1,4 @@
-@import './variables.scss';
+@use './variables.scss' as *;
 
 // Buttons
 .btn {
@@ -32,7 +32,7 @@
   color: $text-light;
 
   &:hover:not(:disabled) {
-    background-color: lighten($color-deep-red, 5%);
+    background-color: color.adjust($color-deep-red, $lightness: 5%);
     transform: translateY(-2px);
     box-shadow: $shadow-lg;
   }
@@ -156,7 +156,7 @@ textarea {
   position: relative;
   width: 100%;
   aspect-ratio: 1;
-  margin: -$spacing-lg -$spacing-lg $spacing-lg -$spacing-lg;
+  margin: (-$spacing-lg) (-$spacing-lg) $spacing-lg (-$spacing-lg);
   overflow: hidden;
   border-radius: $border-radius-lg $border-radius-lg 0 0;
 
