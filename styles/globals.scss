@@ -1,0 +1,289 @@
+@import './variables.scss';
+
+// Reset and Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-family-main;
+  background-color: $background;
+  color: $text-primary;
+  line-height: $line-height-normal;
+  overflow-x: hidden;
+
+  // Main background with Victorian pattern
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 400px;
+    background: linear-gradient(180deg, $color-black 0%, $color-black 40%, rgba(139, 21, 56, 0.15) 60%, rgba(139, 21, 56, 0.1) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+// Victorian Lace Pattern Background
+.page-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $color-black;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(139, 21, 56, 0.08) 10px,
+      rgba(139, 21, 56, 0.08) 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(139, 21, 56, 0.08) 10px,
+      rgba(139, 21, 56, 0.08) 20px
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $text-light;
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  font-size: $font-size-3xl;
+
+  @include mobile-first {
+    font-size: 2.75rem;
+  }
+
+  @include tablet {
+    font-size: 3rem;
+  }
+}
+
+h2 {
+  font-size: $font-size-2xl;
+
+  @include mobile-first {
+    font-size: 2.25rem;
+  }
+}
+
+h3 {
+  font-size: $font-size-xl;
+
+  @include mobile-first {
+    font-size: 1.75rem;
+  }
+}
+
+h4 {
+  font-size: $font-size-lg;
+}
+
+h5, h6 {
+  font-size: $font-size-base;
+}
+
+p {
+  color: $text-secondary;
+  margin-bottom: $spacing-md;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color $transition-fast, opacity $transition-fast;
+
+  &:hover {
+    color: lighten($color-deep-red, 10%);
+  }
+
+  &:visited {
+    color: darken($color-deep-red, 10%);
+  }
+}
+
+button, input, textarea, select {
+  font-family: $font-family-main;
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @include mobile-first {
+    padding: 0 $spacing-lg;
+  }
+
+  @include tablet {
+    max-width: 1200px;
+  }
+
+  @include desktop {
+    padding: 0 $spacing-xl;
+  }
+}
+
+// Utility Classes
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+// Responsive Images
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Smooth Scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Selection
+::selection {
+  background-color: $primary;
+  color: $color-white;
+}
+
+::-moz-selection {
+  background-color: $primary;
+  color: $color-white;
+}
+
+// Scrollbar Styling
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $background-alt;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-grey;
+  border-radius: $border-radius-md;
+
+  &:hover {
+    background: $color-light-grey;
+  }
+}
+
+// Focus Styles
+*:focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+// Fade in animation
+.fade-in {
+  animation: fadeIn $transition-slow ease-in;
+}
+
+.slide-in-up {
+  animation: slideInUp $transition-slow ease-out;
+}
+
+.slide-in-down {
+  animation: slideInDown $transition-slow ease-out;
+}
