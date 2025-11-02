@@ -1,4 +1,4 @@
-@import '../variables.scss';
+@use '../variables.scss' as *;
 
 .header {
   position: sticky;
@@ -74,7 +74,7 @@
   border: none;
   cursor: pointer;
   padding: $spacing-sm;
-  margin: -$spacing-sm 0 -$spacing-sm -$spacing-sm;
+  margin: (-$spacing-sm) 0 (-$spacing-sm) (-$spacing-sm);
 
   @include tablet {
     display: none;
