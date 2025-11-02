@@ -1,4 +1,4 @@
-@import './variables.scss';
+@use './variables.scss' as *;
 
 // Reset and Base Styles
 * {
@@ -122,11 +122,11 @@ a {
   transition: color $transition-fast, opacity $transition-fast;
 
   &:hover {
-    color: lighten($color-deep-red, 10%);
+    color: color.adjust($color-deep-red, $lightness: 10%);
   }
 
   &:visited {
-    color: darken($color-deep-red, 10%);
+    color: color.adjust($color-deep-red, $lightness: -10%);
   }
 }
 
